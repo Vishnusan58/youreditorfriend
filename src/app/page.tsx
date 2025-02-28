@@ -3,13 +3,12 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
+
 import { Badge } from "@/components/ui/badge"
-import {Play, ChevronRight, Star, CheckCircle, Instagram, Twitter, Youtube, Mail, ChevronLeft} from "lucide-react"
-import { InstagramEmbed } from "@/components/instagram-embed"
-import { YouTubeEmbed } from "@/components/youtube-embed"
+import {ChevronRight, CheckCircle, Mail, ChevronLeft, Instagram, Twitter, Youtube} from "lucide-react"
 import { useEffect } from "react"
 import logoImage from '../components/data/img.png'
+
 
 
 
