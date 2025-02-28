@@ -29,7 +29,7 @@ export function InstagramEmbed({ url, caption }: InstagramEmbedProps) {
         blockquote.setAttribute("data-instgrm-version", "14")
         blockquote.style.margin = "0 auto"
         blockquote.style.width = "100%"
-        blockquote.style.maxWidth = "540px"
+        blockquote.style.maxWidth = "740px"
         container.appendChild(blockquote)
 
         // Load Instagram embed script
