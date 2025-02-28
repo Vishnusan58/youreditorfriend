@@ -5,20 +5,31 @@ import { useEffect, useRef, useState } from "react"
 interface InstagramEmbedProps {
   url: string
   caption?: string
+  className?: string // Added to allow custom styling from parent
 }
 
-export function InstagramEmbed({ url, caption }: InstagramEmbedProps) {
+export function InstagramEmbed({
+                                 url,
+                                 caption,
+                                 className = "" // Default value for optional className
+                               }: InstagramEmbedProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState(false)
+  const [error, setError] = useState<string | null>(null) // Changed to string to store error messages
 
   useEffect(() => {
-    setIsLoading(true)
-    setError(false)
+    let isMounted = true // For handling cleanup and preventing memory leaks
 
-    // Clear previous content
-    const container = containerRef.current
-    if (container) {
+    const loadInstagramEmbed = async () => {
+      if (!isMounted) return
+
+      setIsLoading(true)
+      setError(null)
+
+      const container = containerRef.current
+      if (!container) return
+
+      // Clear previous content
       container.innerHTML = ""
 
       try {
@@ -37,27 +48,41 @@ export function InstagramEmbed({ url, caption }: InstagramEmbedProps) {
         script.src = "//www.instagram.com/embed.js"
         script.async = true
 
-        // Handle load events
-        script.onload = () => {
-          if (window.instgrm) {
-            window.instgrm.Embeds.process()
-            setIsLoading(false)
+        // Create a promise to handle script loading
+        const loadScript = new Promise<void>((resolve, reject) => {
+          script.onload = () => {
+            if (window.instgrm) {
+              window.instgrm.Embeds.process()
+              resolve()
+            } else {
+              reject(new Error("Instagram embed failed to initialize"))
+            }
           }
-        }
 
-        script.onerror = () => {
-          setError(true)
-          setIsLoading(false)
-        }
+          script.onerror = () => {
+            reject(new Error("Failed to load Instagram embed script"))
+          }
+        })
 
         container.appendChild(script)
-      } catch (err) {
-        setError(true)
-        setIsLoading(false)
+
+        await loadScript
+        if (isMounted) {
+          setIsLoading(false)
+        }
+      } catch {
+        if (isMounted) {
+          setError("Failed to load Instagram content")
+          setIsLoading(false)
+        }
       }
     }
 
+    loadInstagramEmbed()
+
     return () => {
+      isMounted = false
+      const container = containerRef.current
       if (container) {
         container.innerHTML = ""
       }
@@ -65,16 +90,16 @@ export function InstagramEmbed({ url, caption }: InstagramEmbedProps) {
   }, [url])
 
   return (
-      <div className="relative flex flex-col items-center mb-6 mt-6">
+      <div className={`relative flex flex-col items-center my-6 ${className}`.trim()}>
         {isLoading && (
             <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/10 backdrop-blur-sm rounded-lg">
-              <div className="h-12 w-12 animate-spin rounded-full border-4 border-purple-500 border-t-transparent"></div>
+              <div className="h-12 w-12 animate-spin rounded-full border-4 border-purple-500 border-t-transparent" />
             </div>
         )}
 
         {error && (
             <div className="rounded-lg border border-red-300 bg-red-50 p-4 text-center text-red-800 w-full max-w-[540px]">
-              Failed to load Instagram content. Please check the URL and try again.
+              {error}
             </div>
         )}
 
