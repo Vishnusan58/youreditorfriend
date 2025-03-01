@@ -145,14 +145,14 @@ export default function VideoEditorPortfolio() {
             </header>
 
             {/* Hero Section */}
-            <section className="container mx-auto px-4 py-20 md:py-32 flex flex-col items-center text-center">
+            <section className="container mx-auto px-4 py-12 md:py-20 flex flex-col items-center text-center">
                 <Badge className="mb-4 bg-purple-900/50 text-purple-300 hover:bg-purple-900/50 border-purple-700">
                     Professional Video Editor
                 </Badge>
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-green-500 to-yellow-500">
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-green-500 to-yellow-500">
                     Short. Snappy. Stunning
                 </h1>
-                <p className="text-gray-400 text-lg md:text-xl max-w-3xl mb-10">
+                <p className="text-gray-400 text-base md:text-lg max-w-2xl mb-8">
                     I create fast, engaging, and high-quality reels that grab attention instantly.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -162,10 +162,7 @@ export default function VideoEditorPortfolio() {
             {/* Showcase Section */}
             <section id="showcase" className="py-20 bg-black/50">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center">Featured Work</h2>
-                    <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-                        Browse through my portfolio of Instagram reels and social media projects
-                    </p>
+
 
                     {/* First Carousel */}
                     <div className="mb-16">
