@@ -121,7 +121,7 @@ export default function VideoEditorPortfolio() {
                             className="object-contain"
                         />
                     </div>
-                    <span className="text-xl font-bold">YourEditorFriend</span>
+                    <span className="text-l font-bold">YourEditorFriend</span>
                 </div>
                 <nav className="hidden md:flex items-center gap-8">
                     <Link href="#showcase" className="hover:text-purple-400 transition-colors">
