@@ -28,7 +28,7 @@ const pricingPlans = [
   {
     name: "Premium",
     description: "Professional edits for marketing and brand content",
-    price: "150,000",
+    price: "15,000",
     popular: true,
     features: [
       "Up to 5 minutes final video",
