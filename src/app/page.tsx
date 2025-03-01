@@ -114,8 +114,8 @@ export default function VideoEditorPortfolio() {
           <Badge className="mb-4 bg-purple-900/50 text-purple-300 hover:bg-purple-900/50 border-purple-700">
             Professional Video Editor
           </Badge>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-blue-500 to-yellow-500">
-                Turning Moments Into Cinematic Experiences
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-green-500 to-yellow-500">
+                Short. Snappy. Stunning
             </h1>
           <p className="text-gray-400 text-lg md:text-xl max-w-3xl mb-10">
             I create stunning, professional video edits that captivate audiences and elevate your brand. From commercials
