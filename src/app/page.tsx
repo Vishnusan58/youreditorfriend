@@ -18,7 +18,7 @@ const pricingPlans = [
         description: "Simple edits for social media content",
         price: "799",
         features: [
-            "Simple cuts & transitions",
+            "Simple cuts and transitions",
             "Basic color correction",
             "Text overlays (minimal)",
             "Basic sound design",
