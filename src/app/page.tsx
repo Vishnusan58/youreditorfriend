@@ -22,7 +22,7 @@ const pricingPlans = [
             "Basic color correction",
             "Text overlays (minimal)",
             "Basic sound design",
-            "30 to 60 sec duration"
+            "30 - 60 sec duration"
         ],
         idealFor: [
             "Sample 1",
