@@ -25,7 +25,7 @@ export function PricingTable({ pricingPlans }: PricingTableProps) {
                     <thead>
                     <tr className="border-b border-purple-800/30">
                         <th className="p-4 text-left font-bold text-lg">Package/Tier</th>
-                        <th className="p-4 text-left font-bold text-lg">Price (₹)</th>
+                        <th className="p-4 text-left font-bold text-lg">Price ()</th>
                         <th className="p-4 text-left font-bold text-lg">Services Included</th>
                         <th className="p-4 text-left font-bold text-lg">Ideal For</th>
                     </tr>
